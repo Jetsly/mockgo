@@ -1,12 +1,12 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
 
-func myfunc(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello"))
-}
+	"github.com/jetsly/mockgo/handle"
+)
 
 func main() {
-	http.HandleFunc("/", myfunc)
+	http.HandleFunc("/", handle.Handle)
 	http.ListenAndServe(":8080", nil)
 }
